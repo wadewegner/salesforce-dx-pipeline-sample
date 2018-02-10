@@ -26,8 +26,10 @@ heroku config:set USERNAME=blah -a $HEROKU_PROD_APP_NAME
 heroku config:set CERT_KEY=blah -a $HEROKU_STAGING_APP_NAME
 heroku config:set CERT_KEY=blah -a $HEROKU_PROD_APP_NAME
 
-heroku config:set INSTANCE_URL=https://test.salesforce.com -a $HEROKU_STAGING_APP_NAME
-heroku config:set INSTANCE_URL=https://test.salesforce.com -a $HEROKU_PROD_APP_NAME
+# Note: STAGE is not specified in the app.json as REQUIRED to ensure
+# it's not coped to the review app
+heroku config:set STAGE=STAGING -a $HEROKU_STAGING_APP_NAME
+heroku config:set STAGE=PROD -a $HEROKU_PROD_APP_NAME
 
 # Add buildpacks to apps
 heroku buildpacks:add -i 1 https://github.com/wadewegner/salesforce-cli-buildpack -a $HEROKU_STAGING_APP_NAME
