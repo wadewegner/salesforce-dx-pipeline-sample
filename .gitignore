@@ -7,3 +7,5 @@ node_modules
 .idea
 destroy.sh
 envvars.sh
+test.sh
+salesforcedx.sh
