@@ -8,7 +8,7 @@ This application is a test app for the [salesforce-dx-buildpack](https://github.
 
 2. Install the Salesforce CLI.
 
-3. Log into the three orgs you'll use with the Salesforce CLI and give them alias:
+3. Log into the three orgs you'll use with the Salesforce CLI and give them aliases:
 
     - Dev Hub : "HubOrg"
     - Staging Org : "TestOrg"
