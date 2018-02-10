@@ -4,4 +4,4 @@ This application is a test app for the [salesforce-dx-buildpack](https://github.
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
-Give it a try! Once it is deployed, click *Manage App* -> click *more* -> click *View logs*.
+Please note that deploying with the Heroku button above will fail because we haven't specified any resources. I leave it here because it provides a simple way to watch the execution of the buildpacks.
