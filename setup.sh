@@ -16,18 +16,19 @@ GITHUB_REPO="wadewegner/salesforce-dx-pipeline-sample"
 heroku apps:create $HEROKU_STAGING_APP_NAME -t $HEROKU_TEAM_NAME
 heroku apps:create $HEROKU_PROD_APP_NAME -t $HEROKU_TEAM_NAME
 
-# Setup config vars
-heroku config:set CLIENT_ID=blah -a $HEROKU_STAGING_APP_NAME
-heroku config:set CLIENT_ID=blah -a $HEROKU_PROD_APP_NAME
-
+# Set config vars for Dev Hub in Staging
+# These values are used by review apps
+heroku config:set DEV_HUB_CLIENT_ID=blah -a $HEROKU_STAGING_APP_NAME
 heroku config:set DEV_HUB_USERNAME=blah -a $HEROKU_STAGING_APP_NAME
-heroku config:set DEV_HUB_USERNAME=blah -a $HEROKU_PROD_APP_NAME
+heroku config:set DEV_HUB_CERT_KEY=blah -a $HEROKU_STAGING_APP_NAME
 
-heroku config:set CERT_KEY=blah -a $HEROKU_STAGING_APP_NAME
-heroku config:set CERT_KEY=blah -a $HEROKU_PROD_APP_NAME
+# Set config vars for Staging and Prod
+heroku config:set USERNAME=blah -a $HEROKU_STAGING_APP_NAME
+heroku config:set USERNAME=blah -a $HEROKU_PROD_APP_NAME
 
-# Note: STAGE is not specified in the app.json as REQUIRED to ensure
-# it's not coped to the review app
+heroku config:set SCRATCH_CONFIG_FILE=config/project-scratch-def.json -a $HEROKU_STAGING_APP_NAME
+heroku config:set SCRATCH_CONFIG_FILE=config/project-scratch-def.json -a $HEROKU_PROD_APP_NAME
+
 heroku config:set STAGE=STAGING -a $HEROKU_STAGING_APP_NAME
 heroku config:set STAGE=PROD -a $HEROKU_PROD_APP_NAME
 
