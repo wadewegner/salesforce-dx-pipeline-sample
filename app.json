@@ -23,5 +23,10 @@
     "worker": {
       "quantity": 0
     }
+  },
+  "env": {
+    "CLIENT_ID": {
+      "required": true
+    }
   }
 }
