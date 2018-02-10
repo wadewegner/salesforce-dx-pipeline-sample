@@ -28,7 +28,7 @@
     "CLIENT_ID": {
       "required": true
     },
-    "USERNAME": {
+    "DEV_HUB_USERNAME": {
       "required": true
     },
     "CERT_KEY": {

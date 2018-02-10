@@ -20,8 +20,8 @@ heroku apps:create $HEROKU_PROD_APP_NAME -t $HEROKU_TEAM_NAME
 heroku config:set CLIENT_ID=blah -a $HEROKU_STAGING_APP_NAME
 heroku config:set CLIENT_ID=blah -a $HEROKU_PROD_APP_NAME
 
-heroku config:set USERNAME=blah -a $HEROKU_STAGING_APP_NAME
-heroku config:set USERNAME=blah -a $HEROKU_PROD_APP_NAME
+heroku config:set DEV_HUB_USERNAME=blah -a $HEROKU_STAGING_APP_NAME
+heroku config:set DEV_HUB_USERNAME=blah -a $HEROKU_PROD_APP_NAME
 
 heroku config:set CERT_KEY=blah -a $HEROKU_STAGING_APP_NAME
 heroku config:set CERT_KEY=blah -a $HEROKU_PROD_APP_NAME
