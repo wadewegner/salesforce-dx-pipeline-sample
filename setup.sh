@@ -10,7 +10,7 @@ HEROKU_TEAM_NAME="appcloud-dev"
 HEROKU_STAGING_APP_NAME="staging$TICKS"
 HEROKU_PROD_APP_NAME="prod$TICKS"
 HEROKU_PIPELINE_NAME="pipeline$TICKS"
-GIT_REMOTE="https://github.com/wadewegner/salesforce-dx-pipeline-sample"
+GITHUB_REPO="wadewegner/salesforce-dx-pipeline-sample"
 
 # Create Heroku apps
 heroku apps:create $HEROKU_STAGING_APP_NAME -t $HEROKU_TEAM_NAME
@@ -24,8 +24,14 @@ heroku buildpacks:add -i 2 https://github.com/wadewegner/salesforce-dx-buildpack
 
 # Create Pipeline
 heroku pipelines:create $HEROKU_PIPELINE_NAME -a $HEROKU_STAGING_APP_NAME -s staging -t $HEROKU_TEAM_NAME
+heroku pipelines:add $HEROKU_PIPELINE_NAME -a $HEROKU_PROD_APP_NAME -s production
+# heroku pipelines:setup $HEROKU_PIPELINE_NAME $GITHUB_REPO -y
 
-# Clean up
-heroku pipelines:destroy $HEROKU_PIPELINE_NAME
+# Clean up script
+echo "heroku pipelines:destroy $HEROKU_PIPELINE_NAME
 heroku apps:destroy -a $HEROKU_STAGING_APP_NAME -c $HEROKU_STAGING_APP_NAME
-heroku apps:destroy -a $HEROKU_PROD_APP_NAME -c $HEROKU_PROD_APP_NAME
+heroku apps:destroy -a $HEROKU_PROD_APP_NAME -c $HEROKU_PROD_APP_NAME" > destroy.sh
+
+echo ""
+echo "Run ./destroy.sh to remove resources"
+echo ""
