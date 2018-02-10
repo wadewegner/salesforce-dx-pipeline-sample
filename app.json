@@ -27,6 +27,12 @@
   "env": {
     "CLIENT_ID": {
       "required": true
+    },
+    "USERNAME": {
+      "required": true
+    },
+    "CERT_KEY": {
+      "required": true
     }
   }
 }

@@ -16,6 +16,19 @@ GITHUB_REPO="wadewegner/salesforce-dx-pipeline-sample"
 heroku apps:create $HEROKU_STAGING_APP_NAME -t $HEROKU_TEAM_NAME
 heroku apps:create $HEROKU_PROD_APP_NAME -t $HEROKU_TEAM_NAME
 
+# Setup config vars
+heroku config:set CLIENT_ID=blah -a $HEROKU_STAGING_APP_NAME
+heroku config:set CLIENT_ID=blah -a $HEROKU_PROD_APP_NAME
+
+heroku config:set USERNAME=blah -a $HEROKU_STAGING_APP_NAME
+heroku config:set USERNAME=blah -a $HEROKU_PROD_APP_NAME
+
+heroku config:set CERT_KEY=blah -a $HEROKU_STAGING_APP_NAME
+heroku config:set CERT_KEY=blah -a $HEROKU_PROD_APP_NAME
+
+heroku config:set INSTANCE_URL=https://test.salesforce.com -a $HEROKU_STAGING_APP_NAME
+heroku config:set INSTANCE_URL=https://test.salesforce.com -a $HEROKU_PROD_APP_NAME
+
 # Add buildpacks to apps
 heroku buildpacks:add -i 1 https://github.com/wadewegner/salesforce-cli-buildpack -a $HEROKU_STAGING_APP_NAME
 heroku buildpacks:add -i 1 https://github.com/wadewegner/salesforce-cli-buildpack -a $HEROKU_PROD_APP_NAME
@@ -33,6 +46,7 @@ echo "heroku pipelines:destroy $HEROKU_PIPELINE_NAME
 heroku apps:destroy -a $HEROKU_STAGING_APP_NAME -c $HEROKU_STAGING_APP_NAME
 heroku apps:destroy -a $HEROKU_PROD_APP_NAME -c $HEROKU_PROD_APP_NAME" > destroy.sh
 
+# 
 echo ""
 echo "Run ./destroy.sh to remove resources"
 echo ""
