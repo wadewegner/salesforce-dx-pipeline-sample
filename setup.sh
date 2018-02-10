@@ -26,9 +26,6 @@ heroku config:set DEV_HUB_CERT_KEY=blah -a $HEROKU_STAGING_APP_NAME
 heroku config:set USERNAME=blah -a $HEROKU_STAGING_APP_NAME
 heroku config:set USERNAME=blah -a $HEROKU_PROD_APP_NAME
 
-heroku config:set SCRATCH_CONFIG_FILE=config/project-scratch-def.json -a $HEROKU_STAGING_APP_NAME
-heroku config:set SCRATCH_CONFIG_FILE=config/project-scratch-def.json -a $HEROKU_PROD_APP_NAME
-
 heroku config:set STAGE=STAGING -a $HEROKU_STAGING_APP_NAME
 heroku config:set STAGE=PROD -a $HEROKU_PROD_APP_NAME
 

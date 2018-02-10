@@ -33,10 +33,6 @@
     },
     "DEV_HUB_CERT_KEY": {
       "required": true
-    },
-    "SCRATCH_CONFIG_FILE": {
-      "required": true,
-      "value": "config/project-scratch-def.json"
     }
   }
 }
