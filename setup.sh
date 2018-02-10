@@ -12,22 +12,26 @@ HEROKU_PROD_APP_NAME="prod$TICKS"
 HEROKU_PIPELINE_NAME="pipeline$TICKS"
 GITHUB_REPO="wadewegner/salesforce-dx-pipeline-sample"
 
+DEV_HUB_USERNAME="HubOrg"
+STAGING_USERNAME="TestOrg"
+PROD_USERNAME="ProdOrg"
+
 # Create Heroku apps
 heroku apps:create $HEROKU_STAGING_APP_NAME -t $HEROKU_TEAM_NAME
 heroku apps:create $HEROKU_PROD_APP_NAME -t $HEROKU_TEAM_NAME
 
 # Set config vars for Dev Hub in Staging
-# These values are used by review apps
-heroku config:set DEV_HUB_CLIENT_ID=blah -a $HEROKU_STAGING_APP_NAME
-heroku config:set DEV_HUB_USERNAME=blah -a $HEROKU_STAGING_APP_NAME
-heroku config:set DEV_HUB_CERT_KEY=blah -a $HEROKU_STAGING_APP_NAME
-
-# Set config vars for Staging and Prod
-heroku config:set USERNAME=blah -a $HEROKU_STAGING_APP_NAME
-heroku config:set USERNAME=blah -a $HEROKU_PROD_APP_NAME
+devHubSfdxAuthUrl=$(sfdx force:org:display --verbose -u $DEV_HUB_USERNAME --json | jq -r .result.sfdxAuthUrl)
+heroku config:set DEV_HUB_SFDX_AUTH_URL=$devHubSfdxAuthUrl -a $HEROKU_STAGING_APP_NAME
 
 heroku config:set STAGE=STAGING -a $HEROKU_STAGING_APP_NAME
 heroku config:set STAGE=PROD -a $HEROKU_PROD_APP_NAME
+
+stagingSfdxAuthUrl=$(sfdx force:org:display --verbose -u $STAGING_USERNAME --json | jq -r .result.sfdxAuthUrl)
+heroku config:set SFDX_AUTH_URL=$stagingSfdxAuthUrl -a $HEROKU_STAGING_APP_NAME
+
+stagingSfdxAuthUrl=$(sfdx force:org:display --verbose -u $PROD_USERNAME --json | jq -r .result.sfdxAuthUrl)
+heroku config:set SFDX_AUTH_URL=$stagingSfdxAuthUrl -a $HEROKU_PROD_APP_NAME
 
 # Add buildpacks to apps
 heroku buildpacks:add -i 1 https://github.com/wadewegner/salesforce-cli-buildpack -a $HEROKU_STAGING_APP_NAME

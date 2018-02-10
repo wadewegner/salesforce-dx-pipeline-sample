@@ -25,13 +25,7 @@
     }
   },
   "env": {
-    "DEV_HUB_CLIENT_ID": {
-      "required": true
-    },
-    "DEV_HUB_USERNAME": {
-      "required": true
-    },
-    "DEV_HUB_CERT_KEY": {
+    "DEV_HUB_SFDX_AUTH_URL": {
       "required": true
     }
   }
