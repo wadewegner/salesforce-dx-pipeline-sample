@@ -25,7 +25,8 @@ heroku buildpacks:add -i 2 https://github.com/wadewegner/salesforce-dx-buildpack
 # Create Pipeline
 heroku pipelines:create $HEROKU_PIPELINE_NAME -a $HEROKU_STAGING_APP_NAME -s staging -t $HEROKU_TEAM_NAME
 heroku pipelines:add $HEROKU_PIPELINE_NAME -a $HEROKU_PROD_APP_NAME -s production
-# heroku pipelines:setup $HEROKU_PIPELINE_NAME $GITHUB_REPO -y
+# bug: https://github.com/heroku/heroku-pipelines/issues/80
+# heroku pipelines:setup $HEROKU_PIPELINE_NAME $GITHUB_REPO -y -t $HEROKU_TEAM_NAME
 
 # Clean up script
 echo "heroku pipelines:destroy $HEROKU_PIPELINE_NAME
