@@ -11,7 +11,6 @@ HEROKU_STAGING_APP_NAME="staging$TICKS"
 HEROKU_PROD_APP_NAME="prod$TICKS"
 HEROKU_PIPELINE_NAME="pipeline$TICKS"
 GITHUB_REPO="wadewegner/salesforce-dx-pipeline-sample"
-
 DEV_HUB_USERNAME="HubOrg"
 STAGING_USERNAME="TestOrg"
 PROD_USERNAME="ProdOrg"
