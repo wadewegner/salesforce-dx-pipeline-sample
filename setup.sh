@@ -1,8 +1,6 @@
-# Script to setup a fully configured pipeline
-
-# Ensure Heroku and SFDX CLI is update
-heroku update
-sfdx update
+#################################################################
+# Script to setup a fully configured pipeline for Salesforce DX #
+#################################################################
 
 # Create a unique var to append
 TICKS=$(echo $(date +%s | cut -b1-13))
@@ -17,6 +15,12 @@ GIT_REMOTE="https://github.com/wadewegner/salesforce-dx-pipeline-sample"
 # Create Heroku apps
 heroku apps:create $HEROKU_STAGING_APP_NAME -t $HEROKU_TEAM_NAME
 heroku apps:create $HEROKU_PROD_APP_NAME -t $HEROKU_TEAM_NAME
+
+# Add buildpacks to apps
+heroku buildpacks:add -i 1 https://github.com/wadewegner/salesforce-cli-buildpack -a $HEROKU_STAGING_APP_NAME
+heroku buildpacks:add -i 1 https://github.com/wadewegner/salesforce-cli-buildpack -a $HEROKU_PROD_APP_NAME
+heroku buildpacks:add -i 2 https://github.com/wadewegner/salesforce-dx-buildpack -a $HEROKU_STAGING_APP_NAME
+heroku buildpacks:add -i 2 https://github.com/wadewegner/salesforce-dx-buildpack -a $HEROKU_PROD_APP_NAME
 
 # Create Pipeline
 heroku pipelines:create $HEROKU_PIPELINE_NAME -a $HEROKU_STAGING_APP_NAME -s staging -t $HEROKU_TEAM_NAME
