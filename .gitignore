@@ -9,3 +9,4 @@ destroy.sh
 envvars.sh
 test.sh
 salesforcedx.sh
+.vscode
