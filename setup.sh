@@ -43,7 +43,7 @@ heroku config:set STAGE=PROD -a $HEROKU_PROD_APP_NAME
 # Turn on debug logging
 heroku config:set SFDX_BUILDPACK_DEBUG=true -a $HEROKU_DEV_APP_NAME
 heroku config:set SFDX_BUILDPACK_DEBUG=true -a $HEROKU_STAGING_APP_NAME
-heroku config:set SFDX_BUILDPACK_DEBUG=true -a $HEROKU_PROD_APP_NAME
+heroku config:set SFDX_BUILDPACK_DEBUG=false -a $HEROKU_PROD_APP_NAME
 
 # Setup sfdxUrl's for auth
 devHubSfdxAuthUrl=$(sfdx force:org:display --verbose -u $DEV_HUB_USERNAME --json | jq -r .result.sfdxAuthUrl)
