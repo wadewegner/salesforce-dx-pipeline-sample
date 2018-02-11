@@ -15,15 +15,7 @@
     "url": "https://github.com/wadewegner/salesforce-cli-buildpack"
   }, {
     "url": "https://github.com/wadewegner/salesforce-dx-buildpack"
-  }, {
-    "url": "https://github.com/heroku/heroku-buildpack-nodejs"
   }],
-  "formation": {
-    "web": {
-      "quantity": 1,
-      "size": "free"
-    }
-  },
   "env": {
     "DEV_HUB_SFDX_AUTH_URL": {
       "required": true

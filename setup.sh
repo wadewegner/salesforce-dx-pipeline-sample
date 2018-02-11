@@ -67,10 +67,6 @@ heroku buildpacks:add -i 2 https://github.com/wadewegner/salesforce-dx-buildpack
 heroku buildpacks:add -i 2 https://github.com/wadewegner/salesforce-dx-buildpack -a $HEROKU_STAGING_APP_NAME
 heroku buildpacks:add -i 2 https://github.com/wadewegner/salesforce-dx-buildpack -a $HEROKU_PROD_APP_NAME
 
-heroku buildpacks:add -i 3 https://github.com/heroku/heroku-buildpack-nodejs -a $HEROKU_DEV_APP_NAME
-heroku buildpacks:add -i 3 https://github.com/heroku/heroku-buildpack-nodejs -a $HEROKU_STAGING_APP_NAME
-heroku buildpacks:add -i 3 https://github.com/heroku/heroku-buildpack-nodejs -a $HEROKU_PROD_APP_NAME
-
 # Create Pipeline
 # Valid stages: "test", "review", "development", "staging", "production"
 heroku pipelines:create $HEROKU_PIPELINE_NAME -a $HEROKU_DEV_APP_NAME -s development -t $HEROKU_TEAM_NAME
