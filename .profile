@@ -1,5 +1,6 @@
-echo "Updating PATH to include Salesforce CLI ..."
-export PATH=$PATH:/app/.local/share/sfdx/cli/bin/
+# Needed?
+# echo "Updating PATH to include Salesforce CLI ..."
+# export PATH=$PATH:/app/.local/share/sfdx/cli/bin/
 
-echo "Updating Salesforce CLI plugin ..."
-sfdx update
+# echo "Updating Salesforce CLI plugin ..."
+# sfdx update
