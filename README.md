@@ -4,6 +4,7 @@ This application is a test app for the [salesforce-dx-buildpack](https://github.
 
 ![image](https://user-images.githubusercontent.com/746259/36068129-5c8a19b2-0e82-11e8-96b5-a9fed295a33d.png)
 
+Following the steps below, you can setup a Heroku Pipeline to drive CI / CD with Salesforce DX.
 
 ## Setup
 
