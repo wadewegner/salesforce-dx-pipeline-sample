@@ -40,7 +40,7 @@ Unfortunately there's a bug in `heroku pipelines:setup` that prevents us from fu
 
 5. Click **Enable Review Apps...**. Check both boxes and click **Enable**.
 
-6. Under staging, click the expansion button and then click **Configure automatic deploys..**. Then click **Enable Automatic Deploys**.
+6. Under development, click the expansion button and then click **Configure automatic deploys..**. Then click **Enable Automatic Deploys**.
 
 Now you're all set.
 
