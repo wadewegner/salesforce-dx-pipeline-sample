@@ -55,6 +55,8 @@ Now you're all set.
 
 To demo, simply submit a pull request. It's easiest to do through the Github UI. Simply edit a page, then instead of committing directly to the branch, create a pull request. Once created, the review app is ready to go. When the pull request is accepted, the review app is deleted and the application is deployed to your staging org.
 
+If you want to work against the latest buildpacks, update the version # (or remove entirely).
+
 ## Clean up
 
 At any time you can run `./destroy.sh` to delete your pipeline and apps.
