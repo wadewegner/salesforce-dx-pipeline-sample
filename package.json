@@ -1,0 +1,13 @@
+{
+  "name": "sampe-package",
+  "version": "0.0.1",
+  "description": "A sample package.json because it's required",
+  "engines": {
+    "node": "8.9.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wadewegner/salesforce-dx-pipeline-sample"
+  },
+  "license": "ALv2"
+}
