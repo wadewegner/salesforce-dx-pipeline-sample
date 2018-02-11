@@ -11,6 +11,7 @@ This application is a test app for the [salesforce-dx-buildpack](https://github.
 3. Log into the three orgs you'll use with the Salesforce CLI and give them aliases:
 
     - Dev Hub : "HubOrg"
+    - Development Org : "DevOrg"
     - Staging Org : "TestOrg"
     - Prod Org : "ProdOrg"
 
