@@ -15,13 +15,13 @@
     "url": "https://github.com/wadewegner/salesforce-cli-buildpack"
   }, {
     "url": "https://github.com/wadewegner/salesforce-dx-buildpack"
+  }, {
+    "url": "https://github.com/heroku/heroku-buildpack-nodejs"
   }],
   "formation": {
     "web": {
-      "quantity": 0
-    },
-    "worker": {
-      "quantity": 0
+      "quantity": 1,
+      "size": "free"
     }
   },
   "env": {
