@@ -2,26 +2,31 @@
 
 This application is a test app for the [salesforce-dx-buildpack](https://github.com/wadewegner/salesforce-dx-buildpack) and [salesforce-cli-buildpack](https://github.com/wadewegner/salesforce-cli-buildpack).
 
+![image](https://user-images.githubusercontent.com/746259/36068129-5c8a19b2-0e82-11e8-96b5-a9fed295a33d.png)
+
+
 ## Setup
 
-1. Install the Heroku CLI.
+1. Install the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli).
 
-2. Install the Salesforce CLI.
+2. Install the [Salesforce CLI](https://developer.salesforce.com/tools/sfdxcli).
 
-3. Log into the three orgs you'll use with the Salesforce CLI and give them aliases:
+3. Log into the four orgs you'll use with the Salesforce CLI and give them aliases:
 
-    - Dev Hub : "HubOrg"
-    - Development Org : "DevOrg"
-    - Staging Org : "TestOrg"
-    - Prod Org : "ProdOrg"
+    - Dev Hub (e.g.. "HubOrg"): this will create scratch orgs for your Review Apps
+    - Development Org (e.g. "DevOrg"): this is the first environment you'll update using a metadata deploy
+    - Staging Org (e.g. "TestOrg"): this is the first environment from which you'll promote your code via release phase
+    - Prod Org : "ProdOrg": this is your production org
 
-4. Fork this repository.
+4. Ensure you see all four orgs when you run `sfdx force:org:list`.
 
-5. Clone the repository locally.
+5. Fork this repository.
 
-6. Update the values in `setup.sh` accordingly.
+6. Clone the repository locally.
 
-7. Run `./setup.sh`.
+7. Update the values in `setup.sh` accordingly (e.g. `HEROKU_TEAM_NAME`, `DEV_HUB_USERNAME`, `DEV_USERNAME`, `STAGING_USERNAME`, and `PROD_USERNAME`).
+
+8. Run `./setup.sh`.
 
 Unfortunately there's a bug in `heroku pipelines:setup` that prevents us from fully setting up the pipeline. To manually finish the setup, perform the following steps:
 
