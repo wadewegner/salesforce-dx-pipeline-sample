@@ -13,10 +13,10 @@ This application is a test app for the [salesforce-dx-buildpack](https://github.
 
 3. Log into the four orgs you'll use with the Salesforce CLI and give them aliases:
 
-    - Dev Hub (e.g.. "HubOrg"): this will create scratch orgs for your Review Apps
-    - Development Org (e.g. "DevOrg"): this is the first environment you'll update using a metadata deploy
-    - Staging Org (e.g. "TestOrg"): this is the first environment from which you'll promote your code via release phase
-    - Prod Org : "ProdOrg": this is your production org
+    - **Dev Hub (e.g.. "HubOrg")**: this will create scratch orgs for your Review Apps
+    - **Development Org (e.g. "DevOrg")**: this is the first environment you'll update using a metadata deploy
+    - **Staging Org (e.g. "TestOrg")**: this is the first environment from which you'll promote your code via release phase
+    - **Prod Org : "ProdOrg"**: this is your production org
 
 4. Ensure you see all four orgs when you run `sfdx force:org:list`.
 
