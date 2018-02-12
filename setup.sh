@@ -8,8 +8,8 @@
 # Create a unique var to append
 TICKS=$(echo $(date +%s | cut -b1-13))
 
-# Name of your team
-HEROKU_TEAM_NAME="appcloud-dev"
+# Name of your team (optional)
+HEROKU_TEAM_NAME="" 
 
 # Name of the Heroku apps you'll use
 HEROKU_DEV_APP_NAME="dev$TICKS"
@@ -30,10 +30,16 @@ GITHUB_REPO="wadewegner/salesforce-dx-pipeline-sample"
 
 ### Setup script
 
-# Create Heroku apps
-heroku apps:create $HEROKU_DEV_APP_NAME -t $HEROKU_TEAM_NAME
-heroku apps:create $HEROKU_STAGING_APP_NAME -t $HEROKU_TEAM_NAME
-heroku apps:create $HEROKU_PROD_APP_NAME -t $HEROKU_TEAM_NAME
+# Support a Heroku team
+HEROKU_TEAM_FLAG=""
+if [ ! "$HEROKU_TEAM_NAME" == "" ]; then
+  HEROKU_TEAM_FLAG="-t $HEROKU_TEAM_NAME"
+fi
+
+# Create three Heroku apps to map to orgs
+heroku apps:create $HEROKU_DEV_APP_NAME $HEROKU_TEAM_FLAG
+heroku apps:create $HEROKU_STAGING_APP_NAME $HEROKU_TEAM_FLAG
+heroku apps:create $HEROKU_PROD_APP_NAME $HEROKU_TEAM_FLAG
 
 # Set the stage (since STAGE isn't required, review apps don't get one)
 heroku config:set STAGE=DEV -a $HEROKU_DEV_APP_NAME
@@ -69,11 +75,11 @@ heroku buildpacks:add -i 2 https://github.com/wadewegner/salesforce-dx-buildpack
 
 # Create Pipeline
 # Valid stages: "test", "review", "development", "staging", "production"
-heroku pipelines:create $HEROKU_PIPELINE_NAME -a $HEROKU_DEV_APP_NAME -s development -t $HEROKU_TEAM_NAME
+heroku pipelines:create $HEROKU_PIPELINE_NAME -a $HEROKU_DEV_APP_NAME -s development $HEROKU_TEAM_FLAG
 heroku pipelines:add $HEROKU_PIPELINE_NAME -a $HEROKU_STAGING_APP_NAME -s staging
 heroku pipelines:add $HEROKU_PIPELINE_NAME -a $HEROKU_PROD_APP_NAME -s production
 # bug: https://github.com/heroku/heroku-pipelines/issues/80
-# heroku pipelines:setup $HEROKU_PIPELINE_NAME $GITHUB_REPO -y -t $HEROKU_TEAM_NAME
+# heroku pipelines:setup $HEROKU_PIPELINE_NAME $GITHUB_REPO -y $HEROKU_TEAM_FLAG
 
 # Clean up script
 echo "heroku pipelines:destroy $HEROKU_PIPELINE_NAME
