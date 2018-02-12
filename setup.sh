@@ -21,7 +21,7 @@ HEROKU_PIPELINE_NAME="pipeline$TICKS"
 
 # Usernames or aliases of the orgs you're using
 DEV_HUB_USERNAME="HubOrg"
-DEV_USERNAME="tpo"
+DEV_USERNAME="DevOrg"
 STAGING_USERNAME="TestOrg"
 PROD_USERNAME="ProdOrg"
 
