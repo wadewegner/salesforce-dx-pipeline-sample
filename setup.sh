@@ -27,7 +27,7 @@ STAGING_USERNAME="TestOrg"
 PROD_USERNAME="ProdOrg"
 
 # Repository with your code
-GITHUB_REPO="wadewegner/salesforce-dx-pipeline-sample"
+GITHUB_REPO="dcarroll/salesforce-dx-pipeline-sample"
 
 ### Setup script
 
