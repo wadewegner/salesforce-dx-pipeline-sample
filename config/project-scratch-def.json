@@ -3,5 +3,6 @@
     "edition": "Developer",
     "orgPreferences" : {
         "enabled": ["S1DesktopEnabled"]
-    }
+    },
+    "hasSampleData": true
 }
