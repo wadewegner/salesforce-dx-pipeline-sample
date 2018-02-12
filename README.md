@@ -25,6 +25,8 @@ That's it. The buildpacks will do the rest.
     - **Staging Org (e.g. "TestOrg")**: this is the first environment from which you'll promote your code via release phase
     - **Prod Org : "ProdOrg"**: this is your production org
 
+    Note: you could cheat and, simply for demon purposes, use the same org for the DevOrg, TestOrg, and ProdOrg.
+
 4. Ensure you see all four orgs when you run `sfdx force:org:list`.
 
 5. Fork this repository.
