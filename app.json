@@ -12,7 +12,7 @@
   "dependencies": {},
   "devDependencies": {},
   "buildpacks": [{
-    "url": "https://github.com/wadewegner/salesforce-cli-buildpack#v2"
+    "url": "https://github.com/wadewegner/salesforce-cli-buildpack#v3"
   }, {
     "url": "https://github.com/wadewegner/salesforce-dx-buildpack#v3"
   }],
