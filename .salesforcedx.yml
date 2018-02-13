@@ -1,13 +1,10 @@
 scratch-org-def: config/project-scratch-def.json
-assign-permset: true
+assign-permset: false
 permset-name:
-  - yourpermset
 run-apex-tests: true
 apex-test-format: tap
 delete-scratch-org: false
 show-scratch-org-url: true
-open-path: c/YourCustomApp.app
-import-data: true
+open-path: 
+import-data: false
 data-plans:
-  - ./data/YourCustomObject1__c-plan.json
-  - ./data/YourCustomObject2__c-plan.json
