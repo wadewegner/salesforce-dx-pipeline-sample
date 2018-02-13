@@ -27,7 +27,7 @@
   "environments": {
     "test": {
       "scripts": {
-        "test-setup": "./bin/test-setup.sh && ./vendor/sfdx/release.sh ci",
+        "test-setup": "./vendor/sfdx/release.sh ci && ./bin/test-setup.sh",
         "test": "./bin/test.sh"
       }
     }
