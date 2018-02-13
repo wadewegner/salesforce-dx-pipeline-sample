@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+set -o errexit    # always exit on error
+set -o pipefail   # don't ignore exit codes when piping output
+set -o nounset    # fail on unset variables
+
 #################################################################
 # Script to setup a fully configured pipeline for Salesforce DX #
 #################################################################
@@ -66,13 +70,13 @@ stagingSfdxAuthUrl=$(sfdx force:org:display --verbose -u $PROD_USERNAME --json |
 heroku config:set SFDX_AUTH_URL=$stagingSfdxAuthUrl -a $HEROKU_PROD_APP_NAME
 
 # Add buildpacks to apps
-heroku buildpacks:add -i 1 https://github.com/wadewegner/salesforce-cli-buildpack#v1 -a $HEROKU_DEV_APP_NAME
-heroku buildpacks:add -i 1 https://github.com/wadewegner/salesforce-cli-buildpack#v1 -a $HEROKU_STAGING_APP_NAME
-heroku buildpacks:add -i 1 https://github.com/wadewegner/salesforce-cli-buildpack#v1 -a $HEROKU_PROD_APP_NAME
+heroku buildpacks:add -i 1 https://github.com/wadewegner/salesforce-cli-buildpack#v2 -a $HEROKU_DEV_APP_NAME
+heroku buildpacks:add -i 1 https://github.com/wadewegner/salesforce-cli-buildpack#v2 -a $HEROKU_STAGING_APP_NAME
+heroku buildpacks:add -i 1 https://github.com/wadewegner/salesforce-cli-buildpack#v2 -a $HEROKU_PROD_APP_NAME
 
-heroku buildpacks:add -i 2 https://github.com/wadewegner/salesforce-dx-buildpack#v1 -a $HEROKU_DEV_APP_NAME
-heroku buildpacks:add -i 2 https://github.com/wadewegner/salesforce-dx-buildpack#v1 -a $HEROKU_STAGING_APP_NAME
-heroku buildpacks:add -i 2 https://github.com/wadewegner/salesforce-dx-buildpack#v1 -a $HEROKU_PROD_APP_NAME
+heroku buildpacks:add -i 2 https://github.com/wadewegner/salesforce-dx-buildpack#v2 -a $HEROKU_DEV_APP_NAME
+heroku buildpacks:add -i 2 https://github.com/wadewegner/salesforce-dx-buildpack#v2 -a $HEROKU_STAGING_APP_NAME
+heroku buildpacks:add -i 2 https://github.com/wadewegner/salesforce-dx-buildpack#v2 -a $HEROKU_PROD_APP_NAME
 
 # Create Pipeline
 # Valid stages: "test", "review", "development", "staging", "production"
