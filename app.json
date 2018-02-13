@@ -28,7 +28,7 @@
     "test": {
       "scripts": {
         "test-setup": "./bin/test-setup.sh",
-        "test": "./bin/test.sh"
+        "test": "./vendor/sfdx/release.sh ci && ./bin/test.sh"
       }
     }
   }
