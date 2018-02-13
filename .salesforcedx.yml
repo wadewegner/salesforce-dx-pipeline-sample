@@ -4,7 +4,7 @@ permset-name:
 run-apex-tests: true
 apex-test-format: tap
 delete-scratch-org: false
-show-scratch-org-url: true
+show-scratch-org-url: false
 open-path: 
 import-data: false
 data-plans:
