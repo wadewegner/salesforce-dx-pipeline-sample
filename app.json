@@ -27,8 +27,8 @@
   "environments": {
     "test": {
       "scripts": {
-        "test-setup": "sfdx force:org:display -u targetorg",
-        "test": "sfdx force:apex:test:run -r tap -u targetorg"
+        "test-setup": "./bin/test-setup.sh",
+        "test": "/bin/test.sh"
       }
     }
   }
