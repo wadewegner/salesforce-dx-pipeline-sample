@@ -23,5 +23,13 @@
     "SFDX_BUILDPACK_DEBUG" : {
       "required": true
     }
+  },
+  "environments": {
+    "test": {
+      "scripts": {
+        "test-setup": "sfdx force:org:display -u targetorg",
+        "test": "sfdx force:apex:test:run -r tap -u targetorg"
+      }
+    }
   }
 }
