@@ -70,9 +70,9 @@ stagingSfdxAuthUrl=$(sfdx force:org:display --verbose -u $PROD_USERNAME --json |
 heroku config:set SFDX_AUTH_URL=$stagingSfdxAuthUrl -a $HEROKU_PROD_APP_NAME
 
 # Add buildpacks to apps
-heroku buildpacks:add -i 1 https://github.com/wadewegner/salesforce-cli-buildpack#v2 -a $HEROKU_DEV_APP_NAME
-heroku buildpacks:add -i 1 https://github.com/wadewegner/salesforce-cli-buildpack#v2 -a $HEROKU_STAGING_APP_NAME
-heroku buildpacks:add -i 1 https://github.com/wadewegner/salesforce-cli-buildpack#v2 -a $HEROKU_PROD_APP_NAME
+heroku buildpacks:add -i 1 https://github.com/wadewegner/salesforce-cli-buildpack#v3 -a $HEROKU_DEV_APP_NAME
+heroku buildpacks:add -i 1 https://github.com/wadewegner/salesforce-cli-buildpack#v3 -a $HEROKU_STAGING_APP_NAME
+heroku buildpacks:add -i 1 https://github.com/wadewegner/salesforce-cli-buildpack#v3 -a $HEROKU_PROD_APP_NAME
 
 heroku buildpacks:add -i 2 https://github.com/wadewegner/salesforce-dx-buildpack#v3 -a $HEROKU_DEV_APP_NAME
 heroku buildpacks:add -i 2 https://github.com/wadewegner/salesforce-dx-buildpack#v3 -a $HEROKU_STAGING_APP_NAME
