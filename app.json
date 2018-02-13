@@ -27,7 +27,7 @@
   "environments": {
     "test": {
       "scripts": {
-        "test-setup": "./vendor/sfdx/release.sh ci$HEROKU_TEST_RUN_COMMIT_VERSION && ./bin/test-setup.sh",
+        "test-setup": "./vendor/sfdx/release.sh ci-$HEROKU_TEST_RUN_COMMIT_VERSION && ./bin/test-setup.sh",
         "test": "./bin/test.sh"
       }
     }
