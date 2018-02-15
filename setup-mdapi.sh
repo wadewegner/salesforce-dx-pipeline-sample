@@ -61,21 +61,6 @@ heroku config:set STAGE=DEV -a $HEROKU_DEV_APP_NAME
 heroku config:set STAGE=STAGING -a $HEROKU_STAGING_APP_NAME
 heroku config:set STAGE=PROD -a $HEROKU_PROD_APP_NAME
 
-# Set whether or not to use DCP packaging
-heroku config:set SFDX_INSTALL_PACKATE_VERSION=false -a $HEROKU_DEV_APP_NAME
-heroku config:set SFDX_INSTALL_PACKATE_VERSION=true -a $HEROKU_STAGING_APP_NAME
-heroku config:set SFDX_INSTALL_PACKATE_VERSION=true -a $HEROKU_PROD_APP_NAME
-
-# Set stage to create package version
-heroku config:set SFDX_CREATE_PACKAGE_VERSION=false -a $HEROKU_DEV_APP_NAME
-heroku config:set SFDX_CREATE_PACKAGE_VERSION=true -a $HEROKU_STAGING_APP_NAME
-heroku config:set SFDX_CREATE_PACKAGE_VERSION=false -a $HEROKU_PROD_APP_NAME
-
-# Package name
-heroku config:set SFDX_PACKAGE_NAME="PipelineSamplePackage" -a $HEROKU_DEV_APP_NAME
-heroku config:set SFDX_PACKAGE_NAME="PipelineSamplePackage" -a $HEROKU_STAGING_APP_NAME
-heroku config:set SFDX_PACKAGE_NAME="PipelineSamplePackage" -a $HEROKU_PROD_APP_NAME
-
 # Turn on debug logging
 heroku config:set SFDX_BUILDPACK_DEBUG=false -a $HEROKU_DEV_APP_NAME
 heroku config:set SFDX_BUILDPACK_DEBUG=false -a $HEROKU_STAGING_APP_NAME
