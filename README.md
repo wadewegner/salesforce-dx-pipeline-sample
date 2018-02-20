@@ -35,6 +35,14 @@ That's it. Along with the `setup.sh` script you find in this repo, the buildpack
 
 7. Update the values in `setup.sh` accordingly (e.g. `HEROKU_TEAM_NAME`, `DEV_HUB_USERNAME`, `DEV_USERNAME`, `STAGING_USERNAME`, and `PROD_USERNAME`).
 
+8. Create a developer-controlled package:
+
+```
+sfdx force:package2:create -n PipelineSamplePackage - "My package yo" -o Unlocked -e
+```
+
+9. Update the `sfdx-project.json` and inclu
+
 8. Run `./setup.sh`.
 
 Unfortunately there's a bug in `heroku pipelines:setup` that prevents us from fully setting up the pipeline. To manually finish the setup, perform the following steps:

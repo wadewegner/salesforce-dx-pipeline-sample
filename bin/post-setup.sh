@@ -10,6 +10,6 @@ echo "hello from post-setup.sh"
 
 if [ "$STAGE" == "" ]; then
 
-  echo "only run from review app or ci"
+  echo "only run from review app or ci: $TARGET_ORG_ALIAS"
   
 fi
