@@ -33,6 +33,9 @@ PROD_USERNAME="ProdOrg"
 # Repository with your code
 GITHUB_REPO="wadewegner/salesforce-dx-pipeline-sample"
 
+# Your package name
+PACKAGE_NAME="PackageName"
+
 ### Setup script
 
 # Support a Heroku team
@@ -62,24 +65,24 @@ heroku config:set STAGE=STAGING -a $HEROKU_STAGING_APP_NAME
 heroku config:set STAGE=PROD -a $HEROKU_PROD_APP_NAME
 
 # Set whether or not to use DCP packaging
-heroku config:set SFDX_INSTALL_PACKATE_VERSION=false -a $HEROKU_DEV_APP_NAME
-heroku config:set SFDX_INSTALL_PACKATE_VERSION=true -a $HEROKU_STAGING_APP_NAME
-heroku config:set SFDX_INSTALL_PACKATE_VERSION=true -a $HEROKU_PROD_APP_NAME
+heroku config:set SFDX_INSTALL_PACKAGE_VERSION=true -a $HEROKU_DEV_APP_NAME
+heroku config:set SFDX_INSTALL_PACKAGE_VERSION=true -a $HEROKU_STAGING_APP_NAME
+heroku config:set SFDX_INSTALL_PACKAGE_VERSION=true -a $HEROKU_PROD_APP_NAME
 
 # Set stage to create package version
-heroku config:set SFDX_CREATE_PACKAGE_VERSION=false -a $HEROKU_DEV_APP_NAME
-heroku config:set SFDX_CREATE_PACKAGE_VERSION=true -a $HEROKU_STAGING_APP_NAME
+heroku config:set SFDX_CREATE_PACKAGE_VERSION=true -a $HEROKU_DEV_APP_NAME
+heroku config:set SFDX_CREATE_PACKAGE_VERSION=false -a $HEROKU_STAGING_APP_NAME
 heroku config:set SFDX_CREATE_PACKAGE_VERSION=false -a $HEROKU_PROD_APP_NAME
 
 # Package name
-heroku config:set SFDX_PACKAGE_NAME="PipelineSamplePackage" -a $HEROKU_DEV_APP_NAME
-heroku config:set SFDX_PACKAGE_NAME="PipelineSamplePackage" -a $HEROKU_STAGING_APP_NAME
-heroku config:set SFDX_PACKAGE_NAME="PipelineSamplePackage" -a $HEROKU_PROD_APP_NAME
+heroku config:set SFDX_PACKAGE_NAME="$PACKAGE_NAME" -a $HEROKU_DEV_APP_NAME
+heroku config:set SFDX_PACKAGE_NAME="$PACKAGE_NAME" -a $HEROKU_STAGING_APP_NAME
+heroku config:set SFDX_PACKAGE_NAME="$PACKAGE_NAME" -a $HEROKU_PROD_APP_NAME
 
 # Turn on debug logging
-heroku config:set SFDX_BUILDPACK_DEBUG=false -a $HEROKU_DEV_APP_NAME
-heroku config:set SFDX_BUILDPACK_DEBUG=false -a $HEROKU_STAGING_APP_NAME
-heroku config:set SFDX_BUILDPACK_DEBUG=false -a $HEROKU_PROD_APP_NAME
+heroku config:set SFDX_BUILDPACK_DEBUG=true -a $HEROKU_DEV_APP_NAME
+heroku config:set SFDX_BUILDPACK_DEBUG=true -a $HEROKU_STAGING_APP_NAME
+heroku config:set SFDX_BUILDPACK_DEBUG=true -a $HEROKU_PROD_APP_NAME
 
 # Setup sfdxUrl's for auth
 devHubSfdxAuthUrl=$(sfdx force:org:display --verbose -u $DEV_HUB_USERNAME --json | jq -r .result.sfdxAuthUrl)
@@ -113,5 +116,7 @@ heroku pipelines:add $HEROKU_PIPELINE_NAME -a $HEROKU_PROD_APP_NAME -s productio
 
 heroku ci:config:set -p $HEROKU_PIPELINE_NAME DEV_HUB_SFDX_AUTH_URL=$devHubSfdxAuthUrl
 heroku ci:config:set -p $HEROKU_PIPELINE_NAME SFDX_AUTH_URL=$devSfdxAuthUrl
-heroku ci:config:set -p $HEROKU_PIPELINE_NAME SFDX_BUILDPACK_DEBUG=false
-
+heroku ci:config:set -p $HEROKU_PIPELINE_NAME SFDX_BUILDPACK_DEBUG=true
+heroku ci:config:set -p $HEROKU_PIPELINE_NAME SFDX_INSTALL_PACKAGE_VERSION=true
+heroku ci:config:set -p $HEROKU_PIPELINE_NAME SFDX_CREATE_PACKAGE_VERSION=false
+heroku ci:config:set -p $HEROKU_PIPELINE_NAME SFDX_PACKAGE_NAME="$PACKAGE_NAME"
