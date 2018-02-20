@@ -3,11 +3,12 @@
     {
       "path": "force-app",
       "default": true,
-      "id": "0Ho6A0000004C9NSAU",
-      "versionNumber": "1.0.0.NEXT"
+      "id": "0Ho6A0000004C9XSAU",
+      "versionNumber": "1.0.0.NEXT",
+      "versionName": "version name"
     }
   ],
   "namespace": "",
   "sfdcLoginUrl": "https://login.salesforce.com",
-  "sourceApiVersion": "41.0"
+  "sourceApiVersion": "42.0"
 }
