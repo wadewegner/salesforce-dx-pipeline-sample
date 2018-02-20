@@ -1,5 +1,7 @@
 # salesforce-dx-pipeline-sample
 
+This sample uses unlocked second generation packages (2GPs) to deploy project updates.
+
 Using this sample app and the resources in this repo, you can setup a Heroku Pipeline to drive CI / CD for Salesforce DX. This sample uses the [salesforce-dx-buildpack](https://github.com/wadewegner/salesforce-dx-buildpack) and the [salesforce-cli-buildpack](https://github.com/wadewegner/salesforce-cli-buildpack).
 
 ![image](https://user-images.githubusercontent.com/746259/36068129-5c8a19b2-0e82-11e8-96b5-a9fed295a33d.png)
@@ -41,7 +43,7 @@ That's it. Along with the `setup.sh` script you find in this repo, the buildpack
 sfdx force:package2:create -n PipelineSamplePackage - "My package yo" -o Unlocked -e
 ```
 
-9. Update the `sfdx-project.json` and inclu
+9. Update the `sfdx-project.json` to use your package ID.
 
 8. Run `./setup.sh`.
 
