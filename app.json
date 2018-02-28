@@ -22,6 +22,9 @@
     },
     "SFDX_BUILDPACK_DEBUG" : {
       "required": true
+    },
+    "HEROKU_APP_NAME" : {
+      "required": true
     }
   },
   "environments": {
