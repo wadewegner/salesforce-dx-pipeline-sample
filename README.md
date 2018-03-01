@@ -33,7 +33,7 @@ That's it. Along with the `setup.sh` script you find in this repo, the buildpack
 
 6. Clone the repository locally.
 
-7. Update the values in `setup.sh` accordingly (e.g. `HEROKU_TEAM_NAME`, `DEV_HUB_USERNAME`, `DEV_USERNAME`, `STAGING_USERNAME`, and `PROD_USERNAME`).
+7. Update the values in `setup.sh` accordingly (e.g. `HEROKU_TEAM_NAME`, `HEROKU_APP_NAME`, `DEV_HUB_USERNAME`, `DEV_USERNAME`, `STAGING_USERNAME`, and `PROD_USERNAME`).
 
 8. Create a developer-controlled package:
 
