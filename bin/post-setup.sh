@@ -5,5 +5,3 @@ STAGE=${2:-}
 
 ### Not required
 ### This script will execute after the org has been setup
-
-echo "hello from post-setup.sh"
