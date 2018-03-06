@@ -14,7 +14,7 @@ set -o nounset    # fail on unset variables
 TICKS=$(echo $(date +%s | cut -b1-13))
 
 # Name of your team (optional)
-HEROKU_TEAM_NAME="my-heroku-team"
+HEROKU_TEAM_NAME="appcloud-dev"
 
 # Descriptive name for the Heroku app
 HEROKU_APP_NAME="MyLightningApp"
@@ -37,7 +37,7 @@ PROD_USERNAME="ProdOrg"
 GITHUB_REPO="wadewegner/salesforce-dx-pipeline-sample"
 
 # Your package name
-PACKAGE_NAME="PackageName"
+PACKAGE_NAME="PipelineSamplePackage2"
 
 ### Setup script
 
@@ -105,9 +105,9 @@ heroku buildpacks:add -i 1 https://github.com/wadewegner/salesforce-cli-buildpac
 heroku buildpacks:add -i 1 https://github.com/wadewegner/salesforce-cli-buildpack -a $HEROKU_STAGING_APP_NAME
 heroku buildpacks:add -i 1 https://github.com/wadewegner/salesforce-cli-buildpack -a $HEROKU_PROD_APP_NAME
 
-heroku buildpacks:add -i 2 https://github.com/wadewegner/salesforce-dx-buildpack -a $HEROKU_DEV_APP_NAME
-heroku buildpacks:add -i 2 https://github.com/wadewegner/salesforce-dx-buildpack -a $HEROKU_STAGING_APP_NAME
-heroku buildpacks:add -i 2 https://github.com/wadewegner/salesforce-dx-buildpack -a $HEROKU_PROD_APP_NAME
+heroku buildpacks:add -i 2 https://github.com/wadewegner/salesforce-dx-buildpack#develop -a $HEROKU_DEV_APP_NAME
+heroku buildpacks:add -i 2 https://github.com/wadewegner/salesforce-dx-buildpack#develop -a $HEROKU_STAGING_APP_NAME
+heroku buildpacks:add -i 2 https://github.com/wadewegner/salesforce-dx-buildpack#develop -a $HEROKU_PROD_APP_NAME
 
 # Create Pipeline
 # Valid stages: "test", "review", "development", "staging", "production"
