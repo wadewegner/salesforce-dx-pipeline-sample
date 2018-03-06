@@ -35,12 +35,12 @@ That's it. Along with the `setup.sh` script you find in this repo, the buildpack
 
 6. Clone the repository locally.
 
-7. Update the values in `setup.sh` accordingly (e.g. `HEROKU_TEAM_NAME`, `HEROKU_APP_NAME`, `DEV_HUB_USERNAME`, `DEV_USERNAME`, `STAGING_USERNAME`, and `PROD_USERNAME`).
+7. Update the values in `setup.sh` accordingly (e.g. `HEROKU_TEAM_NAME`, `HEROKU_APP_NAME`, `DEV_HUB_USERNAME`, `DEV_USERNAME`, `STAGING_USERNAME`, `PROD_USERNAME`, `GITHUB_REPO`, and `PACKAGE_NAME`).
 
-8. Create a developer-controlled package:
+8. Create an unlocked package:
 
 ```
-sfdx force:package2:create -n PipelineSamplePackage - "My package yo" -o Unlocked -e
+sfdx force:package2:create -n PackageName - "My package yo" -o Unlocked -e
 ```
 
 9. Update the `sfdx-project.json` to use your package ID.
