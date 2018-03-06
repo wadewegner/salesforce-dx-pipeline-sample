@@ -17,7 +17,7 @@
       "url": "https://github.com/wadewegner/salesforce-cli-buildpack"
     },
     {
-      "url": "https://github.com/wadewegner/salesforce-dx-buildpack#v4-dev"
+      "url": "https://github.com/wadewegner/salesforce-dx-buildpack#develop"
     }
   ],
   "env": {
