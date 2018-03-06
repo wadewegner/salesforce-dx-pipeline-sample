@@ -21,7 +21,7 @@
     }
   ],
   "env": {
-    "DEV_HUB_SFDX_AUTH_URL": {
+    "SFDX_DEV_HUB_AUTH_URL": {
       "required": true
     },
     "SFDX_BUILDPACK_DEBUG": {
