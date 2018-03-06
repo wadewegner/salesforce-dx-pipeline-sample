@@ -10,7 +10,7 @@ To use Heroku Pipelines with any Salesforce DX project, you only need to do two 
 
 1. Create a `app.json` file.
 
-2. Create a `.salesforcedx.yml` file.
+2. Create a `sfdx.yml` file.
 
 That's it. Along with the `setup.sh` script you find in this repo, the buildpacks do the rest.
 
