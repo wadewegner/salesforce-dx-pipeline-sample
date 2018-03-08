@@ -15,6 +15,12 @@
     "url": "https://github.com/wadewegner/salesforce-cli-buildpack#v3"
   }, {
     "url": "https://github.com/wadewegner/salesforce-dx-buildpack#v3"
+  },{
+    "url": "https://github.com/heroku/heroku-buildpack-jvm-common"
+  },{
+    "url": "https://github.com/heroku/heroku-buildpack-google-chrome"
+  },{
+    "url": "https://github.com/heroku/heroku-buildpack-chromedriver"
   }],
   "env": {
     "DEV_HUB_SFDX_AUTH_URL": {
@@ -28,7 +34,7 @@
     "test": {
       "scripts": {
         "test-setup": "./vendor/sfdx/release.sh ci-$HEROKU_TEST_RUN_COMMIT_VERSION && ./bin/test-setup.sh",
-        "test": "./bin/test.sh"
+        "test": "./bin/test.sh ci-$HEROKU_TEST_RUN_COMMIT_VERSION"
       }
     }
   }

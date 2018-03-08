@@ -1,0 +1,18 @@
+{
+  "drivers": {
+    "chrome": {
+      "version": 2.33,
+      "arch": "x64",
+      "baseURL": "https://chromedriver.storage.googleapis.com"
+    }
+  },
+  "webdriverio": {
+    "desiredCapabilities": {
+      "browserName": "chrome",
+      "chromeOptions": {
+        "binary": "/app/.apt/usr/bin/google-chrome",
+        "args": ["--headless"]
+      }
+    }
+  }
+}
