@@ -30,23 +30,5 @@
     "HEROKU_APP_NAME" : {
       "required": true
     }
-  },
-  "environments": {
-    "test": {
-      "scripts": {
-        "test-setup":
-          "./vendor/sfdx/release.sh ci-$HEROKU_TEST_RUN_COMMIT_VERSION && ./bin/test-setup.sh",
-        "test": "./bin/test.sh"
-      }
-    }
-  },
-  "scripts": {
-    "pr-predestroy": "./bin/ra-org-delete.sh"
-  },
-  "formation": {
-    "test": {
-      "quantity": 1,
-      "size": "standard-1x"
-    }
   }
 }
