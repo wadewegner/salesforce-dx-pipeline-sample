@@ -10,8 +10,6 @@
   },
   "homepage":
     "https://github.com/wadewegner/salesforce-dx-pipeline-sample#readme",
-  "dependencies": {},
-  "devDependencies": {},
   "buildpacks": [
     {
       "url": "https://github.com/wadewegner/salesforce-cli-buildpack"
@@ -19,16 +17,5 @@
     {
       "url": "https://github.com/wadewegner/salesforce-dx-buildpack#develop"
     }
-  ],
-  "env": {
-    "SFDX_DEV_HUB_AUTH_URL": {
-      "required": true
-    },
-    "SFDX_BUILDPACK_DEBUG": {
-      "required": true
-    },
-    "HEROKU_APP_NAME" : {
-      "required": true
-    }
-  }
+  ]
 }
