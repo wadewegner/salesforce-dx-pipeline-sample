@@ -2,7 +2,7 @@
 
 This sample uses unlocked second generation packages (2GPs) to deploy project updates. If you're looking to perform metadata deploys instead, please use [https://github.com/wadewegner/salesforce-dx-pipeline-mdapi-sample](https://github.com/wadewegner/salesforce-dx-pipeline-mdapi-sample).
 
-Using this sample app and the resources in this repo, you can setup a Heroku Pipeline to drive CI / CD for Salesforce DX. This sample uses the [salesforce-dx-buildpack](https://github.com/wadewegner/salesforce-dx-buildpack) and the [salesforce-cli-buildpack](https://github.com/wadewegner/salesforce-cli-buildpack).
+Using this sample app and the resources in this repo, you can setup a Heroku Pipeline to drive CI / CD for Salesforce DX. This sample uses the [salesforce-dx-buildpack](https://github.com/heroku/salesforce-buildpack) and the [salesforce-cli-buildpack](https://github.com/heroku/salesforce-cli-buildpack).
 
 ![image](https://user-images.githubusercontent.com/746259/36068129-5c8a19b2-0e82-11e8-96b5-a9fed295a33d.png)
 
