@@ -14,7 +14,7 @@ set -o nounset    # fail on unset variables
 TICKS=$(echo $(date +%s | cut -b1-13))
 
 # Name of your team (optional)
-HEROKU_TEAM_NAME="my-heroku-team"
+HEROKU_TEAM_NAME="appcloud-dev"
 
 # Descriptive name for the Heroku app
 HEROKU_APP_NAME="MyLightningApp"
@@ -37,7 +37,7 @@ PROD_USERNAME="ProdOrg"
 GITHUB_REPO="wadewegner/salesforce-dx-pipeline-sample"
 
 # Your package name
-PACKAGE_NAME="PackageName"
+PACKAGE_NAME="PipelineSamplePackage2"
 
 ### Setup script
 
@@ -51,11 +51,14 @@ fi
 echo "heroku pipelines:destroy $HEROKU_PIPELINE_NAME
 heroku apps:destroy -a $HEROKU_DEV_APP_NAME -c $HEROKU_DEV_APP_NAME
 heroku apps:destroy -a $HEROKU_STAGING_APP_NAME -c $HEROKU_STAGING_APP_NAME
-heroku apps:destroy -a $HEROKU_PROD_APP_NAME -c $HEROKU_PROD_APP_NAME" > destroy.sh
+heroku apps:destroy -a $HEROKU_PROD_APP_NAME -c $HEROKU_PROD_APP_NAME
+rm -- \"destroy$TICKS.sh\"" > destroy$TICKS.sh
 
 echo ""
-echo "Run ./destroy.sh to remove resources"
+echo "Run ./destroy$TICKS.sh to remove resources"
 echo ""
+
+chmod +x "destroy$TICKS.sh"
 
 # Create three Heroku apps to map to orgs
 heroku apps:create $HEROKU_DEV_APP_NAME $HEROKU_TEAM_FLAG
@@ -72,7 +75,7 @@ heroku config:set SFDX_INSTALL_PACKAGE_VERSION=true -a $HEROKU_DEV_APP_NAME
 heroku config:set SFDX_INSTALL_PACKAGE_VERSION=true -a $HEROKU_STAGING_APP_NAME
 heroku config:set SFDX_INSTALL_PACKAGE_VERSION=true -a $HEROKU_PROD_APP_NAME
 
-# Set stage to create package version
+# Set whether to create package version
 heroku config:set SFDX_CREATE_PACKAGE_VERSION=true -a $HEROKU_DEV_APP_NAME
 heroku config:set SFDX_CREATE_PACKAGE_VERSION=false -a $HEROKU_STAGING_APP_NAME
 heroku config:set SFDX_CREATE_PACKAGE_VERSION=false -a $HEROKU_PROD_APP_NAME
@@ -89,7 +92,7 @@ heroku config:set SFDX_BUILDPACK_DEBUG=true -a $HEROKU_PROD_APP_NAME
 
 # Setup sfdxUrl's for auth
 devHubSfdxAuthUrl=$(sfdx force:org:display --verbose -u $DEV_HUB_USERNAME --json | jq -r .result.sfdxAuthUrl)
-heroku config:set DEV_HUB_SFDX_AUTH_URL=$devHubSfdxAuthUrl -a $HEROKU_DEV_APP_NAME
+heroku config:set SFDX_DEV_HUB_AUTH_URL=$devHubSfdxAuthUrl -a $HEROKU_DEV_APP_NAME
 
 devSfdxAuthUrl=$(sfdx force:org:display --verbose -u $DEV_USERNAME --json | jq -r .result.sfdxAuthUrl)
 heroku config:set SFDX_AUTH_URL=$devSfdxAuthUrl -a $HEROKU_DEV_APP_NAME
@@ -101,23 +104,25 @@ stagingSfdxAuthUrl=$(sfdx force:org:display --verbose -u $PROD_USERNAME --json |
 heroku config:set SFDX_AUTH_URL=$stagingSfdxAuthUrl -a $HEROKU_PROD_APP_NAME
 
 # Add buildpacks to apps
-heroku buildpacks:add -i 1 https://github.com/wadewegner/salesforce-cli-buildpack -a $HEROKU_DEV_APP_NAME
-heroku buildpacks:add -i 1 https://github.com/wadewegner/salesforce-cli-buildpack -a $HEROKU_STAGING_APP_NAME
-heroku buildpacks:add -i 1 https://github.com/wadewegner/salesforce-cli-buildpack -a $HEROKU_PROD_APP_NAME
+heroku buildpacks:add -i 1 https://github.com/heroku/salesforce-cli-buildpack -a $HEROKU_DEV_APP_NAME
+heroku buildpacks:add -i 1 https://github.com/heroku/salesforce-cli-buildpack -a $HEROKU_STAGING_APP_NAME
+heroku buildpacks:add -i 1 https://github.com/heroku/salesforce-cli-buildpack -a $HEROKU_PROD_APP_NAME
 
-heroku buildpacks:add -i 2 https://github.com/wadewegner/salesforce-dx-buildpack -a $HEROKU_DEV_APP_NAME
-heroku buildpacks:add -i 2 https://github.com/wadewegner/salesforce-dx-buildpack -a $HEROKU_STAGING_APP_NAME
-heroku buildpacks:add -i 2 https://github.com/wadewegner/salesforce-dx-buildpack -a $HEROKU_PROD_APP_NAME
+heroku buildpacks:add -i 2 https://github.com/heroku/salesforce-buildpack -a $HEROKU_DEV_APP_NAME
+heroku buildpacks:add -i 2 https://github.com/heroku/salesforce-buildpack -a $HEROKU_STAGING_APP_NAME
+heroku buildpacks:add -i 2 https://github.com/heroku/salesforce-buildpack -a $HEROKU_PROD_APP_NAME
 
 # Create Pipeline
 # Valid stages: "test", "review", "development", "staging", "production"
 heroku pipelines:create $HEROKU_PIPELINE_NAME -a $HEROKU_DEV_APP_NAME -s development $HEROKU_TEAM_FLAG
 heroku pipelines:add $HEROKU_PIPELINE_NAME -a $HEROKU_STAGING_APP_NAME -s staging
 heroku pipelines:add $HEROKU_PIPELINE_NAME -a $HEROKU_PROD_APP_NAME -s production
-# bug: https://github.com/heroku/heroku-pipelines/issues/80
-# heroku pipelines:setup $HEROKU_PIPELINE_NAME $GITHUB_REPO -y $HEROKU_TEAM_FLAG
 
-heroku ci:config:set -p $HEROKU_PIPELINE_NAME DEV_HUB_SFDX_AUTH_URL=$devHubSfdxAuthUrl
+# Setup your pipeline
+heroku pipelines:connect $HEROKU_PIPELINE_NAME --repo $GITHUB_REPO
+heroku reviewapps:enable -p $HEROKU_PIPELINE_NAME -a $HEROKU_DEV_APP_NAME --autodeploy --autodestroy
+
+heroku ci:config:set -p $HEROKU_PIPELINE_NAME SFDX_DEV_HUB_AUTH_URL=$devHubSfdxAuthUrl
 heroku ci:config:set -p $HEROKU_PIPELINE_NAME SFDX_AUTH_URL=$devSfdxAuthUrl
 heroku ci:config:set -p $HEROKU_PIPELINE_NAME SFDX_BUILDPACK_DEBUG=true
 heroku ci:config:set -p $HEROKU_PIPELINE_NAME SFDX_INSTALL_PACKAGE_VERSION=true

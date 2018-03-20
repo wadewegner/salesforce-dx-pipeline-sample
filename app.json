@@ -14,14 +14,14 @@
   "devDependencies": {},
   "buildpacks": [
     {
-      "url": "https://github.com/wadewegner/salesforce-cli-buildpack"
+      "url": "https://github.com/heroku/salesforce-cli-buildpack"
     },
     {
-      "url": "https://github.com/wadewegner/salesforce-dx-buildpack#v4-dev"
+      "url": "https://github.com/heroku/salesforce-buildpack"
     }
   ],
   "env": {
-    "DEV_HUB_SFDX_AUTH_URL": {
+    "SFDX_DEV_HUB_AUTH_URL": {
       "required": true
     },
     "SFDX_BUILDPACK_DEBUG": {
