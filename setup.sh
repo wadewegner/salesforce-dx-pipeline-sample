@@ -14,10 +14,10 @@ set -o nounset    # fail on unset variables
 TICKS=$(echo $(date +%s | cut -b1-13))
 
 # Name of your team (optional)
-HEROKU_TEAM_NAME="appcloud-dev"
+HEROKU_TEAM_NAME="sfdcjpmm"
 
 # Descriptive name for the Heroku app
-HEROKU_APP_NAME="MyLightningApp"
+HEROKU_APP_NAME="MyDXAppOkamoto333"
 
 # Name of the Heroku apps you'll use
 HEROKU_DEV_APP_NAME="dev$TICKS"
@@ -34,7 +34,7 @@ STAGING_USERNAME="TestOrg"
 PROD_USERNAME="ProdOrg"
 
 # Repository with your code
-GITHUB_REPO="wadewegner/salesforce-dx-pipeline-sample"
+GITHUB_REPO="mokamoto/salesforce-dx-pipeline-sample"
 
 # Your package name
 PACKAGE_NAME="PipelineSamplePackage2"
@@ -119,8 +119,8 @@ heroku pipelines:add $HEROKU_PIPELINE_NAME -a $HEROKU_STAGING_APP_NAME -s stagin
 heroku pipelines:add $HEROKU_PIPELINE_NAME -a $HEROKU_PROD_APP_NAME -s production
 
 # Setup your pipeline
-heroku pipelines:connect $HEROKU_PIPELINE_NAME --repo $GITHUB_REPO
-heroku reviewapps:enable -p $HEROKU_PIPELINE_NAME -a $HEROKU_DEV_APP_NAME --autodeploy --autodestroy
+#heroku pipelines:connect $HEROKU_PIPELINE_NAME --repo $GITHUB_REPO
+#heroku reviewapps:enable -p $HEROKU_PIPELINE_NAME -a $HEROKU_DEV_APP_NAME --autodeploy --autodestroy
 
 heroku ci:config:set -p $HEROKU_PIPELINE_NAME SFDX_DEV_HUB_AUTH_URL=$devHubSfdxAuthUrl
 heroku ci:config:set -p $HEROKU_PIPELINE_NAME SFDX_AUTH_URL=$devSfdxAuthUrl
