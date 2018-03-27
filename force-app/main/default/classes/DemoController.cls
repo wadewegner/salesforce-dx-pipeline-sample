@@ -8,6 +8,6 @@ public with sharing class DemoController {
      * Get the version of the SFDX demo app
      */
     public String getAppVersion() {
-        return '1.0.0';
+        return '1.0.1';
     }
 }
