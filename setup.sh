@@ -17,7 +17,7 @@ TICKS=$(echo $(date +%s | cut -b1-13))
 HEROKU_TEAM_NAME="coe-dev"
 
 # Descriptive name for the Heroku app
-HEROKU_APP_NAME="coeblockchainpipieline"
+HEROKU_APP_NAME="coeblockchain"
 
 # Name of the Heroku apps you'll use
 HEROKU_DEV_APP_NAME="coddevelopment$TICKS"
