@@ -17,7 +17,7 @@
       "url": "https://github.com/heroku/salesforce-cli-buildpack"
     },
     {
-      "url": "https://github.com/heroku/salesforce-buildpack"
+      "url": "https://github.com/heroku/salesforce-buildpack#cwall/debug-procfile"
     }
   ],
   "env": {
