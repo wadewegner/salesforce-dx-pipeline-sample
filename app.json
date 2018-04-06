@@ -37,16 +37,16 @@
         "test-setup":
           "./vendor/sfdx/release.sh ci-$HEROKU_TEST_RUN_COMMIT_VERSION && ./bin/test-setup.sh",
         "test": "./bin/test.sh"
+      },
+      "formation": {
+        "test": {
+          "quantity": 1,
+          "size": "standard-1x"
+        }
       }
     }
   },
   "scripts": {
     "pr-predestroy": "./bin/ra-org-delete.sh"
-  },
-  "formation": {
-    "test": {
-      "quantity": 1,
-      "size": "standard-1x"
-    }
   }
 }
