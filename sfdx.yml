@@ -1,10 +1,10 @@
 scratch-org-def: config/project-scratch-def.json
-assign-permset: false
-permset-name:
+assign-permset: true
+permset-name: dreamhouse
 run-apex-tests: true
 apex-test-format: tap
 delete-scratch-org: false
 show-scratch-org-url: false
-open-path: 
-import-data: false
-data-plans:
+open-path: one/one.app
+import-data: true
+data-plans: assets/data/Broker__c-Property__c-plan.json
