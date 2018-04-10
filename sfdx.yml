@@ -3,8 +3,8 @@ assign-permset: true
 permset-name: dreamhouse
 run-apex-tests: true
 apex-test-format: tap
-delete-scratch-org: false
-show-scratch-org-url: false
+delete-scratch-org: true
+show-scratch-org-url: true
 open-path: one/one.app
 import-data: true
 data-plans: assets/data/Broker__c-Property__c-plan.json
