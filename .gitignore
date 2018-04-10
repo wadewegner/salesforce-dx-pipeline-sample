@@ -5,7 +5,7 @@
 .settings
 node_modules
 .idea
-destroy.sh
+destroy*.sh
 envvars.sh
 test.sh
 salesforcedx.sh
