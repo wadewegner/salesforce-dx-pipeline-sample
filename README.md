@@ -8,6 +8,7 @@ Using this sample app and the resources in this repo, you can setup a Heroku Pip
 
 To use Heroku Pipelines with any Salesforce DX project, you only need to do two things:
 
+
 1. Create a `app.json` file.
 
 2. Create a `sfdx.yml` file.
@@ -40,7 +41,7 @@ That's it. Along with the `setup.sh` script you find in this repo, the buildpack
 8. Create an unlocked package:
 
 ```
-sfdx force:package2:create -n PackageName - "My package yo" -o Unlocked -e
+sfdx force:package2:create -n PackageName -d "My package yo" -o Unlocked -e
 ```
 
 9. Update the `sfdx-project.json` to use your package ID.
