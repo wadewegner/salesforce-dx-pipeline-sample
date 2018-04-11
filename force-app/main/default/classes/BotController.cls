@@ -4,7 +4,7 @@ public with sharing class BotController {
         
         public String handlerClassName;
         public Pattern utterancePattern;
-        // Comment added
+        // Comment
 
         public HandlerMapping(String handlerClassName, String patternStr) {
             this.handlerClassName = handlerClassName;
