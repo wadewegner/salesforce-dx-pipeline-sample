@@ -14,10 +14,10 @@
   "devDependencies": {},
   "buildpacks": [
     {
-      "url": "https://github.com/heroku/salesforce-cli-buildpack"
+      "url": "https://github.com/heroku/salesforce-cli-buildpack#v3"
     },
     {
-      "url": "https://github.com/heroku/salesforce-buildpack"
+      "url": "https://github.com/heroku/salesforce-buildpack#v1"
     }
   ],
   "env": {
