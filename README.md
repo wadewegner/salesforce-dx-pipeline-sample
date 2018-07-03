@@ -59,6 +59,7 @@ To demo, simply submit a pull request. It's easiest to do through the Github UI.
 
 If you want to work against the latest buildpacks, update the version # (or remove entirely).
 
+
 ## Clean up
 
 At any time you can run `./destroy.sh` to delete your pipeline and apps.
