@@ -9,7 +9,11 @@ public with sharing class DemoController {
     }
 
     public String yetAnotherNewMethod() {
-        return 'Changed a lot sYet Another Method';
+        return 'Changed a lot s Yet Another Method';
+    }
+
+    public String yetAnotherNewMethod1() {
+        return 'Changed a lot s Yet Another Method';
     }
 
     public String anotherNewMethod() {
