@@ -17,7 +17,7 @@
       "url": "https://github.com/heroku/salesforce-cli-buildpack"
     },
     {
-      "url": "https://github.com/heroku/salesforce-buildpack/tree/9a0a7ce1f3ff1ba1ec840888072d5cc31469cfb6"
+      "url": "https://github.com/heroku/salesforce-buildpack#v2"
     }
   ],
   "env": {
