@@ -8,13 +8,17 @@ public with sharing class DemoController {
         return 'New Method';
     }
 
+    public String yetAnotherNewMethod() {
+        return 'Yet Another Method';
+    }
+
     public String anotherNewMethod() {
         return 'Another Method';
     }
 
 
     /**
-     * Get the version of the SFDX demo app
+     * Get the version of the SFDX demo apps
      */
     public String getAppVersion() {
         return '1.0.0';
