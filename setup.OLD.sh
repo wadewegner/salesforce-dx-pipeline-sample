@@ -108,10 +108,10 @@ heroku buildpacks:add -i 1 https://github.com/heroku/salesforce-cli-buildpack -a
 heroku buildpacks:add -i 1 https://github.com/heroku/salesforce-cli-buildpack -a $HEROKU_STAGING_APP_NAME
 heroku buildpacks:add -i 1 https://github.com/heroku/salesforce-cli-buildpack -a $HEROKU_PROD_APP_NAME
 
-heroku buildpacks:add -i 2 https://github.com/heroku/salesforce-buildpack/tree/9a0a7ce1f3ff1ba1ec840888072d5cc31469cfb6 -a $HEROKU_DEV_APP_NAME
-heroku buildpacks:add -i 2 https://github.com/heroku/salesforce-buildpack/tree/9a0a7ce1f3ff1ba1ec840888072d5cc31469cfb6 -a $HEROKU_STAGING_APP_NAME
-heroku buildpacks:add -i 2 https://github.com/heroku/salesforce-buildpack/tree/9a0a7ce1f3ff1ba1ec840888072d5cc31469cfb6 -a $HEROKU_PROD_APP_NAME
-s
+heroku buildpacks:add -i 2 https://github.com/heroku/salesforce-buildpack -a $HEROKU_DEV_APP_NAME
+heroku buildpacks:add -i 2 https://github.com/heroku/salesforce-buildpack -a $HEROKU_STAGING_APP_NAME
+heroku buildpacks:add -i 2 https://github.com/heroku/salesforce-buildpack -a $HEROKU_PROD_APP_NAME
+
 # Create Pipeline
 # Valid stages: "test", "review", "development", "staging", "production"
 heroku pipelines:create $HEROKU_PIPELINE_NAME -a $HEROKU_DEV_APP_NAME -s development $HEROKU_TEAM_FLAG

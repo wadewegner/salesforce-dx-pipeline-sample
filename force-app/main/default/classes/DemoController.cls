@@ -8,6 +8,11 @@ public with sharing class DemoController {
         return 'New Method';
     }
 
+    public String anotherNewMethod() {
+        return 'Another Method';
+    }
+
+
     /**
      * Get the version of the SFDX demo app
      */
