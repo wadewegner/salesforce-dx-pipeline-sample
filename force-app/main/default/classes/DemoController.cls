@@ -4,6 +4,10 @@ public with sharing class DemoController {
      */
     public DemoController() {}
 
+    public String myNewMethod() {
+        return 'New Method';
+    }
+
     /**
      * Get the version of the SFDX demo app
      */

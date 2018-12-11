@@ -23,7 +23,7 @@ That's it. Along with the `setup.sh` script you find in this repo, the buildpack
 3. Log into the four orgs you'll use with the Salesforce CLI and give them aliases:
 
     - **Dev Hub (e.g.. "HubOrg")**: this will create scratch orgs for your Review Apps
-    - **Development Org (e.g. "DevOrg")**: this is the first environment you'll update using a metadata deploy
+    - **Development Org (e.g. "DevOrg")**: this is the first environment you'll update using a package deploy
     - **Staging Org (e.g. "TestOrg")**: this is the first environment from which you'll promote your code via release phase
     - **Prod Org : "ProdOrg"**: this is your production org
 
@@ -37,29 +37,19 @@ That's it. Along with the `setup.sh` script you find in this repo, the buildpack
 
 7. Update the values in `setup.sh` accordingly (e.g. `HEROKU_TEAM_NAME`, `HEROKU_APP_NAME`, `DEV_HUB_USERNAME`, `DEV_USERNAME`, `STAGING_USERNAME`, `PROD_USERNAME`, `GITHUB_REPO`, and `PACKAGE_NAME`).
 
-8. Create an unlocked package:
+8. Create an unlocked package in your hub org:
 
 ```
-sfdx force:package2:create -n PackageName - "My package yo" -o Unlocked -e
+sfdx force:package2:create -n <your package name here> -d "My package yo" -o Unlocked -e -u <your hub org alias here>
 ```
 
 9. Update the `sfdx-project.json` to use your package ID.
 
-8. Run `./setup.sh`.
+10. Run `./setup.sh`.
 
-Unfortunately there's a bug in `heroku pipelines:setup` that prevents us from fully setting up the pipeline. To manually finish the setup, perform the following steps:
+11. Open your pipeline: `heroku pipelines:open <YOURPIPELINENAME>`
 
-1. Open your pipeline: `heroku pipelines:open <YOURPIPELINENAME>`
-
-2. Click **Settings**.
-
-3. Search for "salesforce-dx-pipeline-sample" and click **Connect**.
-
-4. Clic **Pipelines**.
-
-5. Click **Enable Review Apps...**. Check both boxes and click **Enable**.
-
-6. Under development, click the expansion button and then click **Configure automatic deploys..**. Then click **Enable Automatic Deploys**.
+6. For the development stage, click the expansion button and then click **Configure automatic deploys..**. Then click **Enable Automatic Deploys**. Do not check "Wait for CI to pass before deploy" unless you have CI setup.
 
 Now you're all set.
 
