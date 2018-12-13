@@ -12,6 +12,10 @@ public with sharing class DemoController {
         return 'Changed a lot s Yet Another Method';
     }
 
+    public String yetAnotherNewMethodXXXXXXX() {
+        return 'Changed a lot s Yet Another Method';
+    }
+
 
     public String yetAnotherNewMethodXXX() {
         return 'Changed a lot s Yet Another Method';
@@ -25,7 +29,7 @@ public with sharing class DemoController {
     public String anotherNewMethod() {
         return 'Another Method';
     }
-    
+
 
     /**
      * Get the version of the SFDX demo apps
