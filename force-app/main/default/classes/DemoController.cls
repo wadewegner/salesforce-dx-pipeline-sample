@@ -8,6 +8,11 @@ public with sharing class DemoController {
         return 'New Method';
     }
 
+
+    public String oneMoreyetAnotherNewMethod() {
+        return 'Changed a lot s Yet Another Method';
+    }
+
     public String yetAnotherNewMethod() {
         return 'Changed a lot s Yet Another Method';
     }
