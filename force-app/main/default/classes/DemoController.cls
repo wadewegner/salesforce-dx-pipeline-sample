@@ -12,8 +12,12 @@ public with sharing class DemoController {
         return 'Changed a lot s Yet Another Method';
     }
 
+    public String oneMoreyetAnotherNewMethodasdfsdfxxx() {
+        return 'Changed a lot s Yet Another Method';
+    }
 
-    public String oneMoreyetAnotherNewMethodasdfsdfsdfdsf() {
+
+    public String oneMoreyetAnotherNewMethodasdfsdfsdfdsf () {
         return 'Changed a lot s Yet Another Method';
     }
 
