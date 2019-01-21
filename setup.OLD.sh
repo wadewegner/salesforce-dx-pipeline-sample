@@ -108,9 +108,9 @@ heroku buildpacks:add -i 1 https://github.com/heroku/salesforce-cli-buildpack -a
 heroku buildpacks:add -i 1 https://github.com/heroku/salesforce-cli-buildpack -a $HEROKU_STAGING_APP_NAME
 heroku buildpacks:add -i 1 https://github.com/heroku/salesforce-cli-buildpack -a $HEROKU_PROD_APP_NAME
 
-heroku buildpacks:add -i 2 https://github.com/hkolasani/salesforce-buildpack -a $HEROKU_DEV_APP_NAME
-heroku buildpacks:add -i 2 https://github.com/hkolasani/salesforce-buildpack -a $HEROKU_STAGING_APP_NAME
-heroku buildpacks:add -i 2 https://github.com/hkolasani/salesforce-buildpack -a $HEROKU_PROD_APP_NAME
+heroku buildpacks:add -i 2 https://github.com/heroku/salesforce-buildpack -a $HEROKU_DEV_APP_NAME
+heroku buildpacks:add -i 2 https://github.com/heroku/salesforce-buildpack -a $HEROKU_STAGING_APP_NAME
+heroku buildpacks:add -i 2 https://github.com/heroku/salesforce-buildpack -a $HEROKU_PROD_APP_NAME
 
 # Create Pipeline
 # Valid stages: "test", "review", "development", "staging", "production"
