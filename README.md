@@ -40,7 +40,7 @@ That's it. Along with the `setup.sh` script you find in this repo, the buildpack
 8. Create an unlocked package in your hub org:
 
 ```
-sfdx force:package2:create -n <your package name here> -d "My package yo" -o Unlocked -e -u <your hub org alias here>
+sfdx force:package:create -n <your package name here> -d "My package yo" -o Unlocked -e -u <your hub org alias here>
 ```
 
 9. Update the `sfdx-project.json` to use your package ID.
