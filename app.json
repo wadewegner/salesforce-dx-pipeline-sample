@@ -2,23 +2,26 @@
   "name": "salesforce-dx-pipeline-sample",
   "version": "0.0.1",
   "description": "Test application for the salesforce-dx-buildpack",
-  "repository": "https://github.com/wadewegner/salesforce-dx-pipeline-sample",
+  "repository": "https://github.com/feliperyan/salesforce-pipelines-demo-fryan",
   "author": "",
   "license": "ALv2",
   "bugs": {
-    "url": "https://github.com/wadewegner/salesforce-dx-pipeline-sample/issues"
+    "url": "https://github.com/feliperyan/salesforce-pipelines-demo-fryan/issues"
   },
   "homepage":
-    "https://github.com/wadewegner/salesforce-dx-pipeline-sample#readme",
+    "https://github.com/feliperyan/salesforce-pipelines-demo-fryan#readme",
   "dependencies": {},
   "devDependencies": {},
   "buildpacks": [
     {
-      "url": "https://github.com/heroku/salesforce-cli-buildpack#v3"
+      "url": "https://github.com/heroku/heroku-buildpack-python"  
     },
     {
-      "url": "https://github.com/heroku/salesforce-buildpack#v1"
-    }
+      "url": "https://github.com/heroku/salesforce-cli-buildpack#v3"
+    },  
+    {
+      "url": "https://github.com/feliperyan/salesforce-buildpack#fryan-allow-procfile"
+    }      
   ],
   "env": {
     "SFDX_DEV_HUB_AUTH_URL": {
@@ -28,6 +31,9 @@
       "required": true
     },
     "HEROKU_APP_NAME" : {
+      "required": true
+    },
+    "API_KEY_HEROKU" : {
       "required": true
     }
   },
