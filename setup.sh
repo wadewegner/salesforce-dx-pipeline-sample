@@ -10,6 +10,10 @@ set -o nounset    # fail on unset variables
 
 ### Declare values
 
+# Get your API key from your Profile settings on Heroku. Make sure this file is not
+# checked in to version control (it's listed in .gitignore)
+API_KEY_HEROKU=''
+
 # Create a unique var to append
 TICKS=$(echo $(date +%s | cut -b1-13))
 
@@ -103,6 +107,8 @@ heroku config:set SFDX_AUTH_URL=$stagingSfdxAuthUrl -a $HEROKU_STAGING_APP_NAME
 prodSfdxAuthUrl=$(sfdx force:org:display --verbose -u $PROD_USERNAME --json | jq -r .result.sfdxAuthUrl)
 heroku config:set SFDX_AUTH_URL=$prodSfdxAuthUrl -a $HEROKU_PROD_APP_NAME
 
+heroku config:set API_KEY_HEROKU=$API_KEY_HEROKU -a $HEROKU_DEV_APP_NAME
+
 # Add buildpacks to apps
 heroku buildpacks:add -i 1 https://github.com/heroku/salesforce-cli-buildpack#v3 -a $HEROKU_DEV_APP_NAME
 heroku buildpacks:add -i 1 https://github.com/heroku/salesforce-cli-buildpack#v3 -a $HEROKU_STAGING_APP_NAME
@@ -129,3 +135,4 @@ heroku ci:config:set -p $HEROKU_PIPELINE_NAME SFDX_INSTALL_PACKAGE_VERSION=true
 heroku ci:config:set -p $HEROKU_PIPELINE_NAME SFDX_CREATE_PACKAGE_VERSION=false
 heroku ci:config:set -p $HEROKU_PIPELINE_NAME SFDX_PACKAGE_NAME="$PACKAGE_NAME"
 heroku ci:config:set -p $HEROKU_PIPELINE_NAME HEROKU_APP_NAME="$HEROKU_APP_NAME"
+
