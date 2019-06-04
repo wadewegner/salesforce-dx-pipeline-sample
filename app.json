@@ -14,11 +14,14 @@
   "devDependencies": {},
   "buildpacks": [
     {
-      "url": "https://github.com/heroku/salesforce-cli-buildpack#v3"
+      "url": "https://github.com/heroku/heroku-buildpack-python"  
     },
     {
-      "url": "https://github.com/heroku/salesforce-buildpack#v1"
-    }
+      "url": "https://github.com/heroku/salesforce-cli-buildpack#v3"
+    },  
+    {
+      "url": "https://github.com/feliperyan/salesforce-buildpack#fryan-allow-procfile"
+    }      
   ],
   "env": {
     "SFDX_DEV_HUB_AUTH_URL": {
@@ -28,6 +31,9 @@
       "required": true
     },
     "HEROKU_APP_NAME" : {
+      "required": true
+    },
+    "API_KEY_HEROKU" : {
       "required": true
     }
   },
