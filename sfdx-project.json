@@ -1,14 +1,18 @@
 {
-  "packageDirectories": [
-    {
-      "path": "force-app",
-      "default": true,
-      "id": "0Ho6A0000004C9XSAU",
-      "versionNumber": "1.0.0.NEXT",
-      "versionName": "version name"
+    "packageDirectories": [
+        {
+            "path": "force-app",
+            "default": true,
+            "versionNumber": "1.0.0.NEXT",
+            "versionName": "version name",
+            "package": "PipelineTest"
+        }
+    ],
+    "namespace": "",
+    "sfdcLoginUrl": "https://login.salesforce.com",
+    "sourceApiVersion": "45.0",
+    "packageAliases": {
+        "PipelineTest": "0Ho1N000000fxTYSAY",
+        "PipelineTest@1.0.0-1": "04t1N000000OccyQAC"
     }
-  ],
-  "namespace": "",
-  "sfdcLoginUrl": "https://login.salesforce.com",
-  "sourceApiVersion": "42.0"
 }
