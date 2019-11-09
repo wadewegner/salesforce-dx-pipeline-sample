@@ -1,14 +1,17 @@
 {
-  "packageDirectories": [
-    {
-      "path": "force-app",
-      "default": true,
-      "id": "0Ho6A0000004C9XSAU",
-      "versionNumber": "1.0.0.NEXT",
-      "versionName": "version name"
+    "packageDirectories": [
+        {
+            "path": "force-app",
+            "package": "DreamforcePackage",
+            "versionName": "ver 0.1",
+            "versionNumber": "0.1.0.NEXT",
+            "default": false
+        }
+    ],
+    "namespace": "",
+    "sfdcLoginUrl": "https://login.salesforce.com",
+    "sourceApiVersion": "42.0",
+    "packageAliases": {
+        "DreamforcePackage": "0Ho6g000000000zCAA"
     }
-  ],
-  "namespace": "",
-  "sfdcLoginUrl": "https://login.salesforce.com",
-  "sourceApiVersion": "42.0"
 }

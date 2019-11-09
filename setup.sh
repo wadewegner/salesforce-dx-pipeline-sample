@@ -14,10 +14,10 @@ set -o nounset    # fail on unset variables
 TICKS=$(echo $(date +%s | cut -b1-13))
 
 # Name of your team (optional)
-HEROKU_TEAM_NAME="appcloud-dev"
+HEROKU_TEAM_NAME=""
 
 # Descriptive name for the Heroku app
-HEROKU_APP_NAME="MyLightningApp"
+HEROKU_APP_NAME="dreamforce-herokuci-demo"
 
 # Name of the Heroku apps you'll use
 HEROKU_DEV_APP_NAME="dev$TICKS"
@@ -28,16 +28,16 @@ HEROKU_PROD_APP_NAME="prod$TICKS"
 HEROKU_PIPELINE_NAME="pipeline$TICKS"
 
 # Usernames or aliases of the orgs you're using
-DEV_HUB_USERNAME="HubOrg"
-DEV_USERNAME="DevOrg"
-STAGING_USERNAME="TestOrg"
-PROD_USERNAME="ProdOrg"
+DEV_HUB_USERNAME="dreamforce-prod"
+DEV_USERNAME="dreamforce-dev"
+STAGING_USERNAME="dreamforce-stage"
+PROD_USERNAME="dreamforce-prod"
 
 # Repository with your code
-GITHUB_REPO="wadewegner/salesforce-dx-pipeline-sample"
+GITHUB_REPO="cameron-2019-dreamforce/salesforce-dx-pipeline-sample"
 
 # Your package name
-PACKAGE_NAME="PipelineSamplePackage2"
+PACKAGE_NAME="DreamforcePackage"
 
 ### Setup script
 
